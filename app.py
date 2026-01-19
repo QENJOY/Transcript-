@@ -6,6 +6,14 @@ from urllib.parse import urlparse
 
 # Pagina instellingen
 st.set_page_config(page_title="YouTube Data Extractor", layout="wide")
+# CSS om het lettertype aan te passen naar de stijl van je website
+st.markdown("""
+    <style>
+    html, body, [class*="css"] {
+        font-family: 'Georgia', 'Times New Roman', serif;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 st.title("🎥 YouTube Data & Transcript Inlezer")
 st.write("Kopieer titel, datum, URL en transcript in één gestructureerd blok.")
 
