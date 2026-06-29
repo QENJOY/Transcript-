@@ -26,9 +26,14 @@ huidige_tijd = datetime.now().strftime("%H:%M:%S")
 st.sidebar.caption(f"🕒 Laatste verse start: {huidige_tijd}")
 
 if st.sidebar.button("Reboot Applicatie"):
-    # Dit vernieuwt de 'gewijzigd' tijdstempel van dit bestand
-    os.utime(__file__, None)
-    st.sidebar.success("Herstarten is getriggerd! De app laadt zo opnieuw.")
+    # Clear de cache voor een echt frisse start
+    st.cache_data.clear()
+    
+    # We geven kort een melding, maar die verdwijnt razendsnel
+    st.sidebar.success("Herstarten...")
+    
+    # Dit dwingt de applicatie om ONMIDDELLIJK te herladen
+    st.rerun()
 # ------------------------------------
 
 st.title("🎥 YouTube Data & Transcript Inlezer")
