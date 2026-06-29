@@ -2,8 +2,9 @@ import streamlit as st
 import yt_dlp
 import requests
 import json
-import os # <-- Toegevoegd voor de reboot-functie
+import os 
 from urllib.parse import urlparse
+from datetime import datetime # <-- Toegevoegd voor de tijdweergave
 
 # Pagina instellingen
 st.set_page_config(page_title="YouTube Data Extractor", layout="wide")
@@ -19,6 +20,11 @@ st.markdown("""
 
 # --- REBOOT FUNCTIE IN DE ZIJBALK ---
 st.sidebar.title("Systeem")
+
+# Krijg de huidige tijd bij het laden van de pagina
+huidige_tijd = datetime.now().strftime("%H:%M:%S")
+st.sidebar.caption(f"🕒 Laatste verse start: {huidige_tijd}")
+
 if st.sidebar.button("Reboot Applicatie"):
     # Dit vernieuwt de 'gewijzigd' tijdstempel van dit bestand
     os.utime(__file__, None)
