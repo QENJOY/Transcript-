@@ -56,7 +56,7 @@ def is_safe_url(url):
 
 def fetch_and_clean_transcript(info):
     """Haalt de tekst op uit de JSON-data van YouTube."""
-    for lang in ['nl', 'en']:
+    for lang in ['en', 'nl']:
         subs = info.get('subtitles', {}).get(lang) or info.get('automatic_captions', {}).get(lang)
         if subs:
             # Pak de JSON url
